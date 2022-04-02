@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>background-color changer</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <script
+      src="https://kit.fontawesome.com/d3c32f0bc8.js"
+      crossorigin="anonymous"
+    ></script> -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Background color changer</h1>
+      <div class="input">
+        <label id="label" for="color1">Color 1: </label>
+        <input type="color" name="color1" id="myInput" placeholder="color1" />
+        <label id="label2" for="color2">Color 2:</label>
+        <input
+          type="color"
+          name="color2"
+          id="col2"
+          placeholder="color2"
+        /><br />
+        <a href="#" onclick="rendercolor()">Submit</a>
+      </div>
+    </div>
+  </body>
+  <script>
+    function rendercolor() {
+      var inputVal = document.getElementById("myInput").value;
+      var color_Two = document.getElementById("col2").value;
+
+      console.log(inputVal);
+      console.log(color_Two);
+
+      var elements = ["label", "label2"];
+
+    
+
+      document.body.style.backgroundImage =
+        "linear-gradient( to right ," + inputVal + ", " + color_Two + ")";
+
+      if (inputVal == "#000000" || color_Two == "#000000") {
+        document.getElementsByTagName("h1")[0].style.color = "white";
+        document.getElementsByTagName("a")[0].style.color = "white";
+        document.getElementsByTagName("a")[0].style.borderColor = "white";
+        for (i = 0; i < elements.length; i++) {
+          document.getElementById(elements[i]).style.color = "white";
+        }
+      }
+      if (inputVal == "#ffffff" || color_Two == "#ffffff") {
+        document.getElementsByTagName("h1")[0].style.color = "black";
+        document.getElementsByTagName("a")[0].style.color = "black";
+        document.getElementsByTagName("a")[0].style.borderColor = "black";
+        for (i = 0; i < elements.length; i++) {
+          document.getElementById(elements[i]).style.color = "black";
+        }
+      }
+    }
+  </script>
+</html>
